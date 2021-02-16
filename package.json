@@ -5,8 +5,14 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/**/*.spec.js --require babel-register",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": ["text", "html"]
   },
   "repository": {
     "type": "git",
@@ -24,9 +30,14 @@
   },
   "homepage": "https://github.com/Rodrigo-Vargas/js-tdd-course#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.3.0",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "2.22.1",
-    "husky": "^5.0.9"
+    "husky": "^5.0.9",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0"
   }
 }
