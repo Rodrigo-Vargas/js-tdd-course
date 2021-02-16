@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm lint && npm run test:coverage
-
-exit 1
+npm run lint && npm run test:coverage
